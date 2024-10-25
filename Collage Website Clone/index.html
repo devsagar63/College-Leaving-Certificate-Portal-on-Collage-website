@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>G.H. Raisoni College</title>
+
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="logo"></div>
+      <div class="nav">
+        <h1>G.H. Raisoni College</h1>
+
+        <p>Engineering Nagpur</p>
+      </div>
+
+    </div>
+
+
+    <main>
+        <div class="container">
+            <h1 class="h1-2">College Leaving Certificate Portal</h1>
+      
+            <div id="student-form">
+              <h2 class="h2-2">Apply for CLC</h2>
+              <form id="applicationForm">
+                <input
+                  type="text"
+                  id="studentName"
+                  placeholder="Your Name"
+                  required
+                />
+                <input type="text" id="studentId" placeholder="Student ID" required />
+                <input
+                  type="text"
+                  id="studentContact"
+                  placeholder="Student's Contact Number"
+                  required
+                />
+                <input
+                  type="email"
+                  id="studentEmail"
+                  placeholder="Student's Email"
+                  required
+                />
+      
+                <div class="dropdown">
+                  <select id="itemSelect" required>
+                    <option value="">Select a Course</option>
+                    <option value="Computer Science Engineering">
+                      Computer Science Engineering
+                    </option>
+                    <option value="Mechanical Engineering">
+                      Mechanical Engineering
+                    </option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Electrical Engineering">
+                      Electrical Engineering
+                    </option>
+                    <option value="Information Technology">
+                      Information Technology
+                    </option>
+                  </select>
+                </div>
+      
+                <div class="submit-con">
+                  <button type="submit" class="submit-button">
+                    Submit Application
+                  </button>
+                </div>
+              </form>
+              <div id="formMessage"></div>
+            </div>
+      
+            <div id="admin-section" style="display: none">
+              <h2>Admin Dashboard</h2>
+              <h3>Applications</h3>
+              <ul id="applicationList"></ul>
+            </div>
+          </div>
+      
+          <script>
+            document
+              .getElementById("applicationForm")
+              .addEventListener("submit", function (event) {
+                event.preventDefault();
+      
+                const name = document.getElementById("studentName").value;
+                const studentId = document.getElementById("studentId").value;
+                const contact = document.getElementById("studentContact").value;
+                const email = document.getElementById("studentEmail").value;
+                const course = document.getElementById("itemSelect").value;
+      
+                const application = {
+                  name,
+                  studentId,
+                  contact,
+                  email,
+                  course,
+                  status: "Pending",
+                };
+      
+                // Save application to localStorage
+                localStorage.setItem(
+                  application_${studentId},
+                  JSON.stringify(application)
+                );
+                document.getElementById("formMessage").innerText =
+                  "Application submitted successfully!";
+      
+                // Clear form
+                this.reset();
+                loadApplications();
+              });
+      
+            function loadApplications() {
+              const applicationsList = document.getElementById("applicationList");
+              applicationsList.innerHTML = "";
+      
+              for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key.startsWith("application_")) {
+                  const application = JSON.parse(localStorage.getItem(key));
+                  const li = document.createElement("li");
+                  li.classList.add("application-item");
+                  li.innerHTML = `${application.name} (ID: ${application.studentId}) - Status: ${application.status} 
+                      <button onclick="approve('${key}')">Approve</button>
+                      <button onclick="reject('${key}')">Reject</button>`;
+                  applicationsList.appendChild(li);
+                }
+              }
+            }
+      
+            function approve(key) {
+              const application = JSON.parse(localStorage.getItem(key));
+              application.status = "Approved";
+              localStorage.setItem(key, JSON.stringify(application));
+              loadApplications();
+            }
+      
+            function reject(key) {
+          
+              localStorage.removeItem(key);
+              loadApplications();
+            }
+      
+            document.getElementById("admin-section").style.display = "block";
+            loadApplications();
+          </script>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,188 @@
+/* * {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins';font-size: 22px;
+}
+
+body {
+    background-color: black;
+}
+
+nav {
+    height: 80px;
+    width: 100%;
+    /* max-width: 80vw; */
+    /* justify-content: space-between;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    padding: 8px 24px;
+    display: inline-block;
+}
+
+.container {
+    margin: 0px 245px;
+    padding: 8px 12px;
+}
+
+.logo {
+    height: 68px;
+    width: 170pxpx;
+    position: relative;
+    z-index: 10;
+    padding: 16px 24px;
+}
+
+.program-btn {
+    display: flex;
+    align-items: center;
+    position: relative;
+    bottom: 50px;
+    color: #5C0F8B;
+    background-color: white;
+    padding: 0px 15px 0px 34px;
+    box-shadow: none;
+    border-radius: 10px 0px 10px 0px;
+    display: inline-block;
+    /* width: 123px; */
+    /* height: 21px;
+    font-size: 15px;
+}
+
+.box2 {
+    color: #ffff;
+    display: inline;
+    display: flex;
+    align-items: center;
+    /* display: inline-block; */
+    /* display: flex;
+    justify-content: space-evenly; */
+
+
+    body {
+
+        margin: 0;
+  
+        font-family: Arial, sans-serif;
+  
+      }
+
+      .nav {
+        
+      }
+  
+  
+      .header {
+  
+        background-color: #000;
+  
+        color: #fff;
+  
+        padding: 10px 0;
+  
+        text-align: center;
+  
+      }
+  
+  
+      .logo {
+        position: relative;
+        left: 835px;
+        height: 56px;
+        width: 240px;
+        background-size:cover ;
+        background-image: url("/assest/ghrce-logo-white.png");
+        padding-top: 50px;
+      }
+  
+  
+      .container {
+  
+        display: flex;
+  
+        justify-content: center;
+  
+        align-items: center;
+  
+        height: 400px;
+  
+        background-image: url("/assest/ghrce-logo-white.png");
+  
+        background-size: cover;
+  
+      }
+  
+  
+      .nav {
+  
+        background-color: #000;
+  
+        color: #fff;
+  
+        padding: 10px;
+  
+        text-align: center;
+  
+      }
+  
+  
+
+
+
+
+
+
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+    
+    .container {
+        position: relative;
+        top: 100px;
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+    }
+    
+    .h1-2, .h2-2, .h3-2 {
+        text-align: center;
+    }
+    
+    input, select {
+        width: 95%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    .submit-button {
+        background-color: #28a745;
+        color: white;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        height: 30px;
+        width: 150px;
+        position: relative;
+        left: 230px;
+    }
+    
+    .submit-button:hover {
+        background-color: #218838;
+    }
+    
+    .application-item {
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
